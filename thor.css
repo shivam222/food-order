@@ -1,0 +1,23 @@
+
+.navbar-nav{
+	font-size:16px;
+}
+.nav{
+	float:right;
+}
+#small{
+	float:right;
+	display: none;
+}
+@media (max-width: 768px) {
+  nav ul     { display: none; }
+  #small { display: inline-block; }
+}
+#small{
+	margin-top:-40px;
+}
+#footer {
+	padding: 60px 0px 90px 0px;
+	text-align: center;
+	color: #555;
+}
