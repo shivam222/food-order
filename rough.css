@@ -73,6 +73,34 @@
 	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,1),rgba(0,0,0,0));
 	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,1),rgba(0,0,0,0));
 }
+.welcome{
+	
+	text-align:center;
+}
+.welcome #mesg{
+  margin-left:5%;
+}
+.forgot{
+	font-family: Courier; color:red; font-size: 10px;
+	}
+.forgot:hover{
+	cursor:pointer;
+}
+.modal-header{
+	text-align:center;
+	background-color:#808080;
+}
+.modal-footer{
+	text-align:left;
+		background-color:#808080;
+}
+.modal-body{
+	background-image: url(images/daal.jpg) ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 #footer {
 	padding: 60px 0px 90px 0px;
 	text-align: center;

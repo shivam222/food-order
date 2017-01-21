@@ -11,7 +11,7 @@ rough2
 <h2>"Home cooked Indian Meals at pocket friendly prices."</h2>
 <a href="#order"><img src="images/order.png"/></a>
 </div>
-<div class="panel-heading">
+<div class="panel-heading" ng-hide="sign5">
 <div class="row">
 <div class="col-md-3 col-md-offset-3">
 <a href="" class="ini" ng-click="change2()" id="register" ng-style="sign2">Sign-up</a>
@@ -59,21 +59,49 @@ rough2
 <div id="headsign">
 <h4>Log-in</h4>
 
-		<form name="frm2" action="register2.php" method="post">
 		
-		
-		<input type="email" name="signmail" placeholder="Your Email id please.." class="form-control" ng-model="email" required/>
-		<span ng-show="frm2.signmail.$error.required"><h6 style="color:red">Required!</h6></span>
-		<span ng-show="frm2.signmail.$error.email"><h6 style="color:red">Not an email.</h6></span>
+		<input type="email" name="signmail2" placeholder="Your Email id please.." class="form-control" ng-model="email2" required/>
+	<!--<span ng-show="frmm.signmail2.$error.required"><h6 style="color:red">Required!</h6></span>
+		<span ng-show="frmm.signmail2.$error.email"><h6 style="color:red">Not an email.</h6></span>-->
 		<br>
-		<input type="password" name="signpass" placeholder="Your password.." class="form-control" ng-model="password"  required/>
-		<span ng-show="frm2.signpass.$error.required"><h6 style="color:red">Required!</h6></span><br>
-		
-		<button type="submit" class="btn btn-default btn-sm btn-danger pull-right">submit</button><br><br>
-		</form>
+		<input type="password" name="signpass2" placeholder="Your password.." class="form-control" ng-model="password2"  required/><br>
+		<!--<span ng-show="frmm.signpass2.$error.required"><h6 style="color:red">Required!</h6></span><br>-->
+		<button  ng-click="submit()" class="btn btn-default btn-sm btn-danger pull-right">submit</button>
+		<p class="forgot" data-toggle="modal" data-target="#mymodal">forgot password?</a>
+		<br>
+		<span>{{msg}}</span>
+
 </div>
 </div>
 </div>
+</div>
+<!--modal-->
+<div id="mymodal" class="modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<h4 class="modal-title">Forgot Password:</h4>
+<div class="modal-header">
+Your new password will be sent to your mail
+</div>
+<div class="modal-body">
+<form action="forgot.php" method="post" name="forgot">
+       <input type="email" name="forgotField" placeholder="Your Email id please.." class="form-control" ng-model="forgotpass" required/>
+		<span ng-show="forgot.forgotField.$error.required"><h6 style="color:red">Required!</h6></span>
+		<span ng-show="forgot.forgotField.$error.email"><h6 style="color:red">Not an email.</h6></span>
+		<button type="submit" class="btn btn-default btn-sm btn-warning pull-right">Get your password</button><br><br>
+</form>
+</div>
+<div class="modal-footer">
+No worries we are here for you:)
+<button name="close" class="btn btn-sm btn-danger pull-right" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<!--logged-->
+<div  ng-hide="log3" class="welcome">
+<h2 id="mesg">Welcome - {{sir}}</h2><br><br>
+<button  ng-click="logout()" class="btn btn-default btn-lg btn-danger ">logout</button>
 </div>
 </div>
 
