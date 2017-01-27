@@ -98,19 +98,50 @@ app.controller('love',function($scope,$http,$rootScope,$cookies){
 	
 });
 
-app.controller('account',function($scope,$cookies){
+app.controller('account',function($scope,$cookies,$http){
 	   
 	   $scope.ahead=true;
 	   if($cookies.get('remail2')=='yep'){
 		    $scope.back=true;
 			$scope.ahead=false;
-			var emailId=$cookies.get('remail');
-			var address=$cookies.get('add');
-			$scope.em=emailId;
-			$scope.ad=address;
+
+			$scope.em=$cookies.get('remail');
+			$scope.ad=$cookies.get('add');
 			
-		  
-	}
+		}
+	     $scope.update=function(){
+			 
+			     $http({
+    method: 'post',
+    url: 'changeadd.php',
+	data : $.param({
+                emaill:$cookies.get('remail'),
+				add:$scope.newarea
+            }),
+    headers: {
+        'Content-Type': "application/x-www-form-urlencoded; "    //charset=utf-8
+              }
+                                    
+	 })
+	.success(function(data) {	
+	
+	         if(data){
+				 var expireDate = new Date();
+                 expireDate.setDate(expireDate.getDate() + 2);
+	             $cookies.put('add',$scope.newarea, {'expires': expireDate});
+				 $cookies.put('remail2','yep', {'expires': expireDate});
+				 $cookies.put('remail',$cookies.get('remail'), {'expires': expireDate});
+			      $scope.em=$cookies.get('remail');
+			      $scope.ad=$cookies.get('add');
+	
+			 }
+	   });
+			 
+			 
+			 
+		 }	
+		
+		
 });
 
 
