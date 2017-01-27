@@ -3,7 +3,13 @@ var app=angular.module('apple',['ngRoute','ngCookies']);
 app.config(function($routeProvider){
 	$routeProvider
 	.when('/',{templateUrl:'rough3.html',
-	controller  : 'love'});
+	controller  : 'love'})
+	.when('/home',{templateUrl:'rough3.html',
+	controller  : 'love'})
+	.when('/account',{templateUrl:'account.html',
+	controller  : 'account'})
+	.when('/order',{templateUrl:'order.html',
+	controller : 'foryou'});
 });
 
 app.controller('love',function($scope,$http,$rootScope,$cookies){
@@ -11,7 +17,7 @@ app.controller('love',function($scope,$http,$rootScope,$cookies){
 	
 	if($cookies.get('remail2')=='yep')
 	{
-	     
+	    
         $scope.log3=false;		
         $scope.sign=true;
         $scope.sign5=true;	
@@ -58,12 +64,15 @@ app.controller('love',function($scope,$http,$rootScope,$cookies){
  	    $rootScope.loggged=data;
 		if($rootScope.loggged!=false){
 			$scope.log2=true;
-			$scope.sir=$rootScope.loggged;
+			$scope.sir=emailer;
+			//$scope.sir=$rootScope.loggged;
 			$scope.log3=false;
 			$scope.msg=" " ;
 			$scope.sign5=true;
 			$cookies.put('remail2','yep', {'expires': expireDate});
+			$cookies.put('add',$rootScope.loggged, {'expires': expireDate});
 			$cookies.put('remail',emailer , {'expires': expireDate});
+			 $rootScope.registered="ok";
 			
 		}
 		else{
@@ -77,12 +86,32 @@ app.controller('love',function($scope,$http,$rootScope,$cookies){
 	$scope.logout=function(){
 		$cookies.remove('remail2');
 		$cookies.remove('remail');
+		$cookies.remove('add');
 		$scope.sign5=false;
 		$scope.log2=false;
 		$scope.log3=true;
 		$scope.sir="";
 		$scope.msg="";
 		
+		
 	}
 	
 });
+
+app.controller('account',function($scope,$cookies){
+	   
+	   $scope.ahead=true;
+	   if($cookies.get('remail2')=='yep'){
+		    $scope.back=true;
+			$scope.ahead=false;
+			var emailId=$cookies.get('remail');
+			var address=$cookies.get('add');
+			$scope.em=emailId;
+			$scope.ad=address;
+			
+		  
+	}
+});
+
+
+

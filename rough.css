@@ -101,6 +101,13 @@
   -o-background-size: cover;
   background-size: cover;
 }
+.accountN{
+	text-align:center;
+	color:white;
+}
+.info{
+	color:white;
+}
 #footer {
 	padding: 60px 0px 90px 0px;
 	text-align: center;

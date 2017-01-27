@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>
+rough2
+</title>
+</head>
+<body ng-controller="account">
+<br><br>
+<div ng-hide="back" class="accountN">
+<br><br><br><br><br><br><br><br>
+<h3>you not registered sir....go to home page and sign in first.
+You can even order food without signing in.</h3>
+
+</div>
+<div ng-hide="ahead">
+<div class="container">
+<div class="well well-sm">
+<table class="table">
+<thead>
+<tr>
+<th><b>Email</b></th>
+<th><b>Address</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{em}}</td>
+<td>{{ad}}</td>
+<td><button class="btn btn-success" data-toggle="modal" data-target="#mod" >Edit</button></td>
+</tr>
+</tbody>
+</table>
+<!--modal-->
+<div class="modal" id="mod">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+Enter Your New Address:
+</div>
+<div class="modal-body">
+ <form name="Nfrm" action="changeadd.php" method="post"> 
+       <textarea name="newAdd" class="form-control" ng-model="newarea" id="area" rows="5" placeholder="Currently services are available only in noida sector-62:)" required></textarea>
+		<span ng-show="Nfrm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
+		<button type="submit" class="btn btn-default btn-sm btn-primary pull-right">Change</button><br><br>
+ </form>
+</div>
+<div class="modal-footer">
+<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
+
+
+<!--<button class="btn btn-default btn-sm btn-danger pull-right" ng-click="submit()" data-toggle="modal" data-target="#mod">submit</button>
+</div>
+</div>
+<!--modal-->
+<!--<div class="modal" id="mod">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<div style="color:black">Name  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Runs</div>
+</div>
+<div class="modal-body" id="globalModal">
+<table>
+<tr ng-repeat="play in array|orderBy:'-runs'">
+<td>{{play.name}}</td>
+<td>{{play.runs}}</td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-sm btn-warning pull-right" data-dismiss="modal" >Hide</button>
+</div>
+</div>
+</div>
+</div>
+</div>--!>

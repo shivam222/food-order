@@ -13,11 +13,11 @@ $database=mysql_select_db($db_name,$connection);
 	    $pass=$_POST['pass'];
 		$hashed=md5($pass);
 		
-		$query="SELECT password,uname FROM food WHERE email='$name'";
+		$query="SELECT password,address FROM food WHERE email='$name'";
 		$run=mysql_query($query);
 		$ansi=mysql_fetch_assoc($run);
 		if($hashed==$ansi['password']){
-		   echo $ansi['uname'];
+		   echo $ansi['address'];
 		}
 	    else{
 		
