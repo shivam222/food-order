@@ -8,6 +8,8 @@ app.config(function($routeProvider){
 	controller  : 'love'})
 	.when('/account',{templateUrl:'account.html',
 	controller  : 'account'})
+	.when('/help',{templateUrl:'help.html',
+	controller  : 'help'})
 	.when('/order',{templateUrl:'order.html',
 	controller : 'foryou'});
 });
@@ -133,7 +135,7 @@ app.controller('account',function($scope,$cookies,$http){
 				 $cookies.put('remail',$cookies.get('remail'), {'expires': expireDate});
 			      $scope.em=$cookies.get('remail');
 			      $scope.ad=$cookies.get('add');
-	
+	              $scope.newarea="Wow you have updated your address...go back and order food on new address:)";
 			 }
 	   });
 			 
@@ -142,6 +144,14 @@ app.controller('account',function($scope,$cookies,$http){
 		 }	
 		
 		
+});
+
+app.controller('help',function($scope,$location,$anchorScroll){
+	
+	$scope.first=function(id){
+		$location.hash(id);
+        $anchorScroll();
+	}
 });
 
 

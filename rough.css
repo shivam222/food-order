@@ -108,6 +108,20 @@
 .info{
 	color:white;
 }
+.need ul{
+	padding:100;
+	list-style-type: none;
+    margin-left:0px;
+	text-align:center;
+	
+}
+.need li{
+	display:inline;
+	cursor:pointer;
+}
+.about h1{
+	text-align:center;
+}
 #footer {
 	padding: 60px 0px 90px 0px;
 	text-align: center;
