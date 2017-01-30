@@ -122,6 +122,32 @@
 .about h1{
 	text-align:center;
 }
+.brown{
+	background-image: url(images/paneer.jpg) ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.brown h4{
+	text-align:center;
+	margin-top:0;
+}
+.thaliadd{
+	text-align:right;
+}
+.pink{
+	background-image: url(images/daal.jpg) ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.pink{
+	text-align:center;
+	margin-top:0;
+	color:white;
+}
 #footer {
 	padding: 60px 0px 90px 0px;
 	text-align: center;
