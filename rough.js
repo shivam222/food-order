@@ -11,7 +11,7 @@ app.config(function($routeProvider){
 	.when('/help',{templateUrl:'help.html',
 	controller  : 'help'})
 	.when('/order',{templateUrl:'order.html',
-	controller : 'foryou'});
+	controller : 'order'});
 });
 
 app.controller('love',function($scope,$http,$rootScope,$cookies){
@@ -152,6 +152,16 @@ app.controller('help',function($scope,$location,$anchorScroll){
 		$location.hash(id);
         $anchorScroll();
 	}
+});
+
+app.controller('order',function($scope,$http){
+	
+	$http({
+  method: 'GET',
+  url: 'thali.php'
+}).success(function(response) {
+    $scope.items=response;
+  });
 });
 
 
