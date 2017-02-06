@@ -14,16 +14,21 @@ Order:)
 <br><br>
 <div>
 <ul ng-repeat="itemss in items">
-<li>{{itemss}}</li>
+<li class="thaliI">{{itemss}}</li>
 </ul>
 </div>
 <br>
+<div class="cost">
+<strong class="thaliRate">Cost-Rs {{cost}}</strong>
+</div>
+<br>
 <div class="thaliadd">
-<button type="button" class="btn btn-default btn-sm">
-  <span class="glyphicon glyphicon-minus"></span>
+<button type="button" class="btn btn-default btn-sm" ng-click="thaliqty('sub')">
+   <i class="fa fa-minus"></i>
 </button>
-<button type="button" class="btn btn-default btn-sm">
-  <span class="glyphicon glyphicon-plus"></span>
+{{qty}}
+<button type="button" class="btn btn-default btn-sm" ng-click="thaliqty('add')">
+  <i class="fa fa-plus"></i>
 </button>
 </div>
 </div>
@@ -31,9 +36,24 @@ Order:)
 </div>
 <br>
 <div class="row">
-<div class="col-md-6 col-md-offset-3">
-<div class="well well-sm pink">
+<div class="col-md-12 col-md-offset-0">
+<div class="well well-sm pinkD">
+<div class="pink">
 <h4>Select Your Own Item</h4>
+</div>
+
+<div class="row">
+<div class="col-md-2 col-sm-2 col-xs-2">
+<div ng-repeat="item in menu">
+<span class="thaliI">{{item}}</span>
+</div>
+</div>
+<div class="col-md-2 col-sm-2 col-xs-2">
+<div ng-repeat="price in menuPrice">
+<span class="thaliI">{{price}}</span>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

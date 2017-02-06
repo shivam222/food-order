@@ -136,16 +136,28 @@
 .thaliadd{
 	text-align:right;
 }
-.pink{
-	background-image: url(images/daal.jpg) ; 
+.pinkD{
+		background-image: url(images/daal.jpg) ; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .pink{
-	text-align:center;
+ text-align:center;
 	margin-top:0;
+	color:white;
+}
+
+.cost{
+	text-align:right;
+}
+.cost .thaliRate{
+	background-color:white;
+	
+}
+.thaliI{
+	background-color:#808080;
 	color:white;
 }
 #footer {

@@ -156,13 +156,44 @@ app.controller('help',function($scope,$location,$anchorScroll){
 
 app.controller('order',function($scope,$http){
 	
+	$scope.qty=0;
+	
 	$http({
   method: 'GET',
   url: 'thali.php'
 }).success(function(response) {
     $scope.items=response;
-  });
+	var l=$scope.items.length;
+	$scope.cost=$scope.items[l-1];
+	$scope.items.pop();
+	  });
+	  
+	 $scope.thaliqty=function(para){
+		 if(para=="add"){
+			 $scope.qty=$scope.qty+1;
+		 }
+		 else if(para=="sub" && $scope.qty>0){
+			 $scope.qty--;
+		 }
+	 }
+	 
+	 $http({
+  method: 'GET',
+  url: 'menu.php'
+}).success(function(response) {
+  
+   $scope.menu=response;
+   
+});
+$http({
+  method: 'GET',
+  url: 'menuPrice.php'
+}).success(function(response2) {
+  
+   $scope.menuPrice=response2;
+   
 });
 
+});
 
 
