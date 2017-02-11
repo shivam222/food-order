@@ -203,7 +203,10 @@ $scope.degrade=function(now){
 $scope.upgrade=function(now){
         $scope.special[now]++;	
 }
-
+$scope.summary=function(){
+	console.log($scope.special);
+	console.log($scope.qty);
+}
 
 });
 

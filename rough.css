@@ -160,6 +160,13 @@
 	background-color:#808080;
 	color:white;
 }
+.checkOut{
+	background-color:white;
+}
+.checkOut button{
+  margin-left:60%;
+  background-color:yellow;
+}
 #footer {
 	padding: 60px 0px 90px 0px;
 	text-align: center;

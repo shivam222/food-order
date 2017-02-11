@@ -35,6 +35,15 @@ Order:)
 </div>
 </div>
 <br>
+<div class="checkOut">
+<i class="fa fa-arrow-circle-right"></i>
+<button class="btn btn-default btn-sm" ng-click="summary()">
+<i class="fa fa-child"></i>
+Checkout
+</button>
+<i class="fa fa-arrow-circle-right"></i>
+</div>
+<br>
 <div class="row">
 <div class="col-md-12 col-md-offset-0">
 <div class="well well-sm pinkD">
@@ -42,18 +51,21 @@ Order:)
 <h4>Select Your Own Item</h4>
 </div>
 
-<div class="row">
+<div class="your row">
 <div class="col-md-2 col-sm-2 col-xs-2">
+<h6 class="thaliI">Items</h6>
 <div ng-repeat="item in menu">
 <span class="thaliI">{{item}}</span>
 </div>
 </div>
 <div class="col-md-2 col-sm-2 col-xs-2">
+<h6 class="thaliI">Price</h6>
 <div ng-repeat="price in menuPrice">
 <span class="thaliI">{{price}}</span>
 </div>
 </div>
-<div class="col-md-2 col-sm-2 col-xs-3">
+<div class="col-md-2 col-sm-2 col-xs-4">
+<h6 class="thaliI">Quantity</h6>
 <div ng-repeat="esp in special track by $index">
 <span class="thaliI">
 <button type="button" class="btn btn-default btn-xs" ng-click="degrade($index)" >
