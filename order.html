@@ -53,6 +53,20 @@ Order:)
 <span class="thaliI">{{price}}</span>
 </div>
 </div>
+<div class="col-md-2 col-sm-2 col-xs-3">
+<div ng-repeat="esp in special track by $index">
+<span class="thaliI">
+<button type="button" class="btn btn-default btn-xs" ng-click="degrade($index)" >
+   <i class="fa fa-minus"></i>
+</button>
+{{esp}}
+<button type="button" class="btn btn-default btn-xs" ng-click="upgrade($index)" >
+  <i class="fa fa-plus"></i>
+</button>
+
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>

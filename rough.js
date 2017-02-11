@@ -157,7 +157,6 @@ app.controller('help',function($scope,$location,$anchorScroll){
 app.controller('order',function($scope,$http){
 	
 	$scope.qty=0;
-	
 	$http({
   method: 'GET',
   url: 'thali.php'
@@ -191,8 +190,20 @@ $http({
 }).success(function(response2) {
   
    $scope.menuPrice=response2;
-   
+    var quantity=[];
+   for(var v=0;v<response2.length;v++){
+	   quantity[v]=0;
+   }
+   $scope.special=quantity;
 });
+$scope.degrade=function(now){
+	if($scope.special[now]>0)
+	   $scope.special[now]--;
+}
+$scope.upgrade=function(now){
+        $scope.special[now]++;	
+}
+
 
 });
 
