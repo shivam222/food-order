@@ -155,7 +155,7 @@ app.controller('help',function($scope,$location,$anchorScroll){
         $anchorScroll();
 	}
 });
-
+var run=0;//to check if order was first opened to summary
 app.controller('order',function($scope,$http,$rootScope){
 	
 	$rootScope.qty=0;
@@ -183,7 +183,7 @@ app.controller('order',function($scope,$http,$rootScope){
   url: 'menu.php'
 }).success(function(response) {
   
-   $scope.menu=response;
+   $rootScope.menu=response;
    
 });
 $http({
@@ -191,7 +191,7 @@ $http({
   url: 'menuPrice.php'
 }).success(function(response2) {
   
-   $scope.menuPrice=response2;
+   $rootScope.menuPrice=response2;
     var quantity=[];
    for(var v=0;v<response2.length;v++){
 	   quantity[v]=0;
@@ -210,11 +210,30 @@ $scope.upgrade=function(now){
 	console.log($scope.qty);
 }*/
 
+run=1;
 });
 app.controller('summary',function($scope,$rootScope){
-	
+	$rootScope.names=[];
+	$rootScope.stock=[];
+	$rootScope.prices=[];
+	if(run==0)
+	{
+		$scope.summor=true;
+		$scope.msg="First go to \"order\" and order something";
+	}
+	else{
 	$scope.thaliq=$rootScope.qty;
 	$scope.thalip=$rootScope.cost*$rootScope.qty;
+	var len=$rootScope.special.length;
+	for(var l=0;l<len;l++){
+		if($rootScope.special[l]>0){
+			$rootScope.names.push($rootScope.menu[l]);
+			$rootScope.stock.push($rootScope.special[l]);
+			$rootScope.prices.push($rootScope.menuPrice[l]*$rootScope.special[l]);
+			
+		}
+	}
+	}
 });
 
 

@@ -6,20 +6,26 @@ summary
 </head>
 <body class="summ" ng-controller="summary">
 <br><br><br><br><br>
+<h3>{{msg}}</h3>
+<div ng-hide="summor">
 <h3 class="text-center">Your order summary</h3>
- <table class="table">
+ <table class="table tabl">
       <tr>
       <th>Item</th>
 	  <td>Thali</td>
+	  <td ng-repeat="name in names">{{name}}</td>
       </tr>
       <tr>
        <th>Qty.</th>
        <td>{{thaliq}}</td>
+	   <td ng-repeat="quant in stock track by $index">{{quant}}</td>
       </tr>
       <tr>
        <th>Price</th>
        <td>{{thalip}}</td>
+	   <td ng-repeat="price in prices">{{price}}</td>
       </tr>
  </table>
+ </div>
 </body>
 </html>
