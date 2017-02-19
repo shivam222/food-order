@@ -163,9 +163,15 @@
 .checkOut{
 	background-color:white;
 }
-.checkOut button{
+.checkOut a{
   margin-left:60%;
   background-color:yellow;
+}
+.table th{
+	color:red;
+}
+.table td{
+	color:white;
 }
 #footer {
 	padding: 60px 0px 90px 0px;
