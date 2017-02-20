@@ -216,6 +216,7 @@ app.controller('summary',function($scope,$rootScope){
 	$rootScope.names=[];
 	$rootScope.stock=[];
 	$rootScope.prices=[];
+	$scope.totalPriceI=0;
 	if(run==0)
 	{
 		$scope.summor=true;
@@ -230,8 +231,14 @@ app.controller('summary',function($scope,$rootScope){
 			$rootScope.names.push($rootScope.menu[l]);
 			$rootScope.stock.push($rootScope.special[l]);
 			$rootScope.prices.push($rootScope.menuPrice[l]*$rootScope.special[l]);
-			
+			$scope.totalPriceI=$scope.totalPriceI+($rootScope.menuPrice[l]*$rootScope.special[l]);
 		}
+	}
+	$rootScope.total=$scope.thalip+$scope.totalPriceI;
+	if($rootScope.total<50){
+		$scope.final1=true;
+		$scope.less=true;
+		$scope.lessTotal="Your total is less than 50:(";
 	}
 	}
 });

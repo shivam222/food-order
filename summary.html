@@ -26,6 +26,15 @@ summary
 	   <td ng-repeat="price in prices">{{price}}</td>
       </tr>
  </table>
+ <div class="checkOut" ng-hide="final1" ><b>Total:</b>{{total}}
+ <a href="#summary">
+<i class="fa fa-child"></i>
+Next
+</a>
+ </div>
+ <div class="thaliI" ng-show="less">
+ {{lessTotal}}
+ </div>
  </div>
 </body>
 </html>
