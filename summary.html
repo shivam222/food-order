@@ -27,7 +27,10 @@ summary
       </tr>
  </table>
  <div class="checkOut" ng-hide="final1" ><b>Total:</b>{{total}}
- <a href="#summary">
+ &nbsp &nbsp &nbsp &nbsp &nbsp
+ <input type="text" name="mobii" class="input-sm col-xs" placeholder="Enter your Mobile No." ng-model="mobii" maxlength="10"/>
+ <i class="fa fa-mobile fa-lg"></i>
+ <a href="#last" ng-class="{disabled:isDisable()}">
 <i class="fa fa-child"></i>
 Next
 </a>

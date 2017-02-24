@@ -13,7 +13,9 @@ app.config(function($routeProvider){
 	.when('/order',{templateUrl:'order.html',
 	controller : 'order'})
 	.when('/summary',{templateUrl:'summary.html',
-	controller : 'summary'});
+	controller : 'summary'})
+	.when('/last',{templateUrl:'last.html',
+	controller : 'last'});
 });
 
 app.controller('love',function($scope,$http,$rootScope,$cookies){
@@ -223,6 +225,15 @@ app.controller('summary',function($scope,$rootScope){
 		$scope.msg="First go to \"order\" and order something";
 	}
 	else{
+	$scope.isDisable=function(){
+		if((''+$scope.mobii).length==10){
+			return false;
+			$rootScope.mob=$scope.mobii;
+		}
+		else{
+		return true;
+		}
+		}
 	$scope.thaliq=$rootScope.qty;
 	$scope.thalip=$rootScope.cost*$rootScope.qty;
 	var len=$rootScope.special.length;
@@ -240,7 +251,18 @@ app.controller('summary',function($scope,$rootScope){
 		$scope.less=true;
 		$scope.lessTotal="Your total is less than 50:(";
 	}
+	
 	}
+	
+});
+app.controller('last',function($scope,$rootScope,$cookies){
+	run=0;
+	$scope.registerd=true;
+	if($cookies.get('remail2')=='yep'){
+		$scope.registerd=false;
+		
+	}
+	
 });
 
 

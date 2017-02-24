@@ -173,6 +173,10 @@
 .tabl td{
 	color:white;
 }
+.disabled{
+	pointer-events: none;
+    cursor: default;
+}
 #footer {
 	padding: 60px 0px 90px 0px;
 	text-align: center;
