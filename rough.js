@@ -1,4 +1,4 @@
-var app=angular.module('apple',['ngRoute','ngCookies']);
+var app=angular.module('apple',['ngRoute','ngCookies','ngStorage']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -214,7 +214,7 @@ $scope.upgrade=function(now){
 
 run=1;
 });
-app.controller('summary',function($scope,$rootScope){
+app.controller('summary',function($scope,$rootScope,$localStorage){
 	$rootScope.names=[];
 	$rootScope.stock=[];
 	$rootScope.prices=[];
@@ -227,8 +227,9 @@ app.controller('summary',function($scope,$rootScope){
 	else{
 	$scope.isDisable=function(){
 		if((''+$scope.mobii).length==10){
+			$localStorage.mob=$scope.mobii;
 			return false;
-			$rootScope.mob=$scope.mobii;
+			
 		}
 		else{
 		return true;
@@ -255,14 +256,15 @@ app.controller('summary',function($scope,$rootScope){
 	}
 	
 });
-app.controller('last',function($scope,$rootScope,$cookies){
+app.controller('last',function($scope,$rootScope,$cookies,$localStorage){
 	run=0;
 	$scope.registerd=true;
 	if($cookies.get('remail2')=='yep'){
 		$scope.registerd=false;
-		
+		$scope.number=$localStorage.mob;
+		$scope.mailer=$cookies.get('remail');
+		$scope.address=$cookies.get('add');
 	}
-	
 });
 
 
