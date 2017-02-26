@@ -157,26 +157,30 @@ app.controller('help',function($scope,$location,$anchorScroll){
         $anchorScroll();
 	}
 });
-var run=0;//to check if order was first opened to summary
-app.controller('order',function($scope,$http,$rootScope){
+
+app.controller('order',function($scope,$http,$rootScope,$localStorage){
 	
-	$rootScope.qty=0;
+	$localStorage.qty=0;
+	$scope.qty=$localStorage.qty;
 	$http({
   method: 'GET',
   url: 'thali.php'
 }).success(function(response) {
     $scope.items=response;
 	var l=$scope.items.length;
-	$rootScope.cost=$scope.items[l-1];
+	$localStorage.cost=$scope.items[l-1];
+	$scope.cost=$localStorage.cost;
 	$scope.items.pop();
 	  });
 	  
 	 $scope.thaliqty=function(para){
 		 if(para=="add"){
-			 $rootScope.qty=$rootScope.qty+1;
+			 $localStorage.qty=$localStorage.qty+1;
+			 $scope.qty=$localStorage.qty;
 		 }
-		 else if(para=="sub" && $rootScope.qty>0){
-			 $rootScope.qty--;
+		 else if(para=="sub" && $localStorage.qty>0){
+			 $localStorage.qty--;
+			 $scope.qty=$localStorage.qty;
 		 }
 	 }
 	 
@@ -185,46 +189,47 @@ app.controller('order',function($scope,$http,$rootScope){
   url: 'menu.php'
 }).success(function(response) {
   
-   $rootScope.menu=response;
-   
+   $localStorage.menu=response;
+   $scope.menu=$localStorage.menu;
 });
 $http({
   method: 'GET',
   url: 'menuPrice.php'
 }).success(function(response2) {
   
-   $rootScope.menuPrice=response2;
+   $localStorage.menuPrice=response2;
+   $scope.menuPrice=$localStorage.menuPrice;
     var quantity=[];
    for(var v=0;v<response2.length;v++){
 	   quantity[v]=0;
    }
-   $rootScope.special=quantity;
+   $localStorage.special=quantity;
+   $scope.special=$localStorage.special;
 });
 $scope.degrade=function(now){
-	if($rootScope.special[now]>0)
-	   $rootScope.special[now]--;
+	if($localStorage.special[now]>0)
+	   $localStorage.special[now]--;
+       $scope.special[now]= $localStorage.special[now];
 }
 $scope.upgrade=function(now){
-        $rootScope.special[now]++;	
+        $localStorage.special[now]++;	
+		$scope.special[now]= $localStorage.special[now];
 }
 /*$scope.summary=function(){
 	console.log($scope.special);
 	console.log($scope.qty);
 }*/
 
-run=1;
 });
 app.controller('summary',function($scope,$rootScope,$localStorage){
-	$rootScope.names=[];
-	$rootScope.stock=[];
-	$rootScope.prices=[];
+	$localStorage.names=[];
+	$scope.names=$localStorage.names;
+	$localStorage.stock=[];
+	$scope.stock=$localStorage.stock;
+	$localStorage.prices=[];
+	$scope.prices=$localStorage.prices;
 	$scope.totalPriceI=0;
-	if(run==0)
-	{
-		$scope.summor=true;
-		$scope.msg="First go to \"order\" and order something";
-	}
-	else{
+	
 	$scope.isDisable=function(){
 		if((''+$scope.mobii).length==10){
 			$localStorage.mob=$scope.mobii;
@@ -232,28 +237,33 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 			
 		}
 		else{
+		$scope.mobmsg="Enter Mob. first";
 		return true;
 		}
 		}
-	$scope.thaliq=$rootScope.qty;
-	$scope.thalip=$rootScope.cost*$rootScope.qty;
-	var len=$rootScope.special.length;
+	$scope.thaliq=$localStorage.qty;
+	$scope.thalip=$localStorage.cost*$localStorage.qty;
+	var len=$localStorage.special.length;
 	for(var l=0;l<len;l++){
-		if($rootScope.special[l]>0){
-			$rootScope.names.push($rootScope.menu[l]);
-			$rootScope.stock.push($rootScope.special[l]);
-			$rootScope.prices.push($rootScope.menuPrice[l]*$rootScope.special[l]);
-			$scope.totalPriceI=$scope.totalPriceI+($rootScope.menuPrice[l]*$rootScope.special[l]);
+		if($localStorage.special[l]>0){
+			$localStorage.names.push($localStorage.menu[l]);
+			$scope.names=$localStorage.names;
+			$localStorage.stock.push($localStorage.special[l]);
+			$scope.stock=$localStorage.stock;
+			$localStorage.prices.push($localStorage.menuPrice[l]*$localStorage.special[l]);
+			$scope.prices=$localStorage.prices;
+			$scope.totalPriceI=$scope.totalPriceI+($localStorage.menuPrice[l]*$localStorage.special[l]);
 		}
 	}
-	$rootScope.total=$scope.thalip+$scope.totalPriceI;
-	if($rootScope.total<50){
+	$localStorage.total=$scope.thalip+$scope.totalPriceI;
+	$scope.total=$localStorage.total;
+	if($localStorage.total<50){
 		$scope.final1=true;
 		$scope.less=true;
 		$scope.lessTotal="Your total is less than 50:(";
 	}
 	
-	}
+	
 	
 });
 app.controller('last',function($scope,$rootScope,$cookies,$localStorage){
