@@ -22,8 +22,41 @@ Last
 <tr>
 <th>ADDRESS</th>
 <td>{{address}}</td>
-<td><button class="btn btn-danger btn-sm"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>Change Your Address</button></td>
+</tr>
+<tr>
+<td><td><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#mod"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>Change Your Address</button></td></td>
 </tr>
 </table>
+<div class="modal" id="mod">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+Enter Your New Address:
+</div>
+<div class="modal-body">
+ 
+       <textarea name="newAdd" class="form-control" ng-model="newarea" id="area" rows="5" placeholder="Currently services are available only in noida sector-62:)" required></textarea>
+		<span ng-show="Nfrm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
+       <button ng-click="update()" class="btn btn-default btn-sm btn-primary pull-right">Change</button><br><br>
+
+</div>
+<div class="modal-footer">
+<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="thaliI">
+<b>Your Total is-->{{total}}</b>
+</div>
+<div>
+
+<hr width="41%" style="margin-left:0;display:inline-block;">
+<button class="btn btn-warning"  style="display:inline-block;width:15%;font-size:10px" ng-click="PlaceIt()"><i class="fa fa-magic" ></i>Place Order</button>
+<hr width="41%" style="display:inline-block;">
+
+</div>
+</div>
 </body>
 </html>

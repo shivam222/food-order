@@ -266,7 +266,7 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 	
 	
 });
-app.controller('last',function($scope,$rootScope,$cookies,$localStorage){
+app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
 	run=0;
 	$scope.registerd=true;
 	if($cookies.get('remail2')=='yep'){
@@ -274,7 +274,40 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage){
 		$scope.number=$localStorage.mob;
 		$scope.mailer=$cookies.get('remail');
 		$scope.address=$cookies.get('add');
+		$scope.total=$localStorage.total;
 	}
+	     $scope.update=function(){
+			 
+			     $http({
+    method: 'post',
+    url: 'changeadd.php',
+	data : $.param({
+                emaill:$cookies.get('remail'),
+				add:$scope.newarea
+            }),
+    headers: {
+        'Content-Type': "application/x-www-form-urlencoded; "    //charset=utf-8
+              }
+                                    
+	 })
+	.success(function(data) {	
+	
+	         if(data){
+				 var expireDate = new Date();
+                 expireDate.setDate(expireDate.getDate() + 2);
+	             $cookies.put('add',$scope.newarea, {'expires': expireDate});
+				 $cookies.put('remail2','yep', {'expires': expireDate});
+				 $cookies.put('remail',$cookies.get('remail'), {'expires': expireDate});
+			     // $scope.em=$cookies.get('remail');
+			      //$scope.ad=$cookies.get('add');
+				  $scope.address=$cookies.get('add');
+	              $scope.newarea="Wow you have updated your address...go back and order food on new address:)";
+			 }
+	   });
+			 
+			 
+			 
+		 }
 });
 
 
