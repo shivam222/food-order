@@ -269,6 +269,7 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
 	run=0;
 	$scope.registerd=true;
+	//for reg. users do this
 	if($cookies.get('remail2')=='yep'){
 		$scope.registerd=false;
 		$scope.number=$localStorage.mob;
@@ -276,6 +277,7 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
 		$scope.address=$cookies.get('add');
 		$scope.total=$localStorage.total;
 	}
+	  //update address as in account section
 	     $scope.update=function(){
 			 
 			     $http({
@@ -290,7 +292,7 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
               }
                                     
 	 })
-	.success(function(data) {	
+	.success(function(data) {	             //success of update add operations
 	
 	         if(data){
 				 var expireDate = new Date();
@@ -308,6 +310,32 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
 			 
 			 
 		 }
+	$scope.PlaceIt=function(){
+		//registered users order code
+	
+		      		     $http({
+    method: 'post',
+    url: 'placeIt.php',
+	data : $.param({
+                email2:$cookies.get('remail'),
+				mob2:$localStorage.mob,
+				tot2:$localStorage.total,
+				namearr:$localStorage.names,
+				pricearr:$localStorage.prices,
+				stockarr:$localStorage.stock,
+				area2:$cookies.get('add')
+				}),
+    headers: {
+        'Content-Type': "application/x-www-form-urlencoded; "    //charset=utf-8
+              }
+                                    
+	 })
+	.success(function(data) {	             //success of update add operations
+	          
+	           console.log(data);
+	   });
+		
+	}
 });
 
 

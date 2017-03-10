@@ -21,10 +21,6 @@ $database=mysql_select_db($db_name,$connection);
 		   }
 		  $data[$i]=$price;
 		   echo json_encode($data);
-		//header('Content-Type: application/json');
-		//if($run1)
-		//{
-	    //echo $ansi['item'];
-		//}
+		
 		
 ?>
