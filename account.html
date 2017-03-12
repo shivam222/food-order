@@ -38,9 +38,10 @@ You can even order food without signing in.</h3>
 Enter Your New Address:
 </div>
 <div class="modal-body">
- 
+       <div class="form-group" ng-form name="myForm">
        <textarea name="newAdd" class="form-control" ng-model="newarea" id="area" rows="5" placeholder="Currently services are available only in noida sector-62:)" required></textarea>
-		<span ng-show="Nfrm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
+		<span ng-show="myForm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
+		</div>
        <button ng-click="update()" class="btn btn-default btn-sm btn-primary pull-right">Change</button><br><br>
 
 </div>

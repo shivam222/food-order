@@ -34,9 +34,10 @@ Last
 Enter Your New Address:
 </div>
 <div class="modal-body">
- 
+       <div class="form-group" ng-form name="myForm">
        <textarea name="newAdd" class="form-control" ng-model="newarea" id="area" rows="5" placeholder="Currently services are available only in noida sector-62:)" required></textarea>
-		<span ng-show="Nfrm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
+		<span ng-show="myForm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
+		</div>
        <button ng-click="update()" class="btn btn-default btn-sm btn-primary pull-right">Change</button><br><br>
 
 </div>
@@ -57,6 +58,45 @@ Enter Your New Address:
 <hr width="41%" style="display:inline-block;">
 
 </div>
+</div>
+<div ng-hide="nRegister">
+<div class="pink">
+<h3>Check your details</h3>
+</div>
+<table class="table">
+<tr>
+<th>MOBILE</th>
+<td>{{number}}</td>
+</tr>
+<tr>
+<th>Total</th>
+<td>{{total}}</td>
+</tr>
+</table>
+<hr width="50%">
+<br>
+<div class="pink">
+<h3>Fill your details</h3>
+</div>
+<div class="well well-md">
+<form name="placen" action="placeItn.php">
+<div class="row">
+<div id="name" class="col-md-3 col-sm-3 col-xs-6">
+<input type="text" class="form-control input-sm" placeholder="Your name sir." />
+</div>
+<div id="email" class="col-md-3 col-md-offset-4 col-sm-3 col-xs-6">
+<input type="text" class="form-control input-sm" placeholder="Your email-id sir." />
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-6">
+<textarea  class="form-control"  id="area" rows="5" placeholder="Address-Currently services are available only in noida sector-62:)" required></textarea>
+</div>
+<br>&nbsp &nbsp &nbsp
+<button class="btn btn-warning btn-sm" ng-click="PlaceIt()"><i class="fa fa-magic" ></i>Place Order</button>
+</div>
+</form>
 </div>
 </body>
 </html>

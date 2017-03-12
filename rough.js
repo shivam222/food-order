@@ -266,15 +266,20 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 	
 	
 });
-app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
+app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http,$window){
 	run=0;
 	$scope.registerd=true;
 	//for reg. users do this
 	if($cookies.get('remail2')=='yep'){
+		$scope.nRegister=true;
 		$scope.registerd=false;
 		$scope.number=$localStorage.mob;
 		$scope.mailer=$cookies.get('remail');
 		$scope.address=$cookies.get('add');
+		$scope.total=$localStorage.total;
+	}
+	else{
+		$scope.number=$localStorage.mob;
 		$scope.total=$localStorage.total;
 	}
 	  //update address as in account section
@@ -332,8 +337,15 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
                                     
 	 })
 	.success(function(data) {	             //success of update add operations
-	          
-	           console.log(data);
+	          if(data){
+				  alert("Your order is placed");
+				  $window.location.href="http://localhost:553/GharKhaana/rough.html#/order";
+				  
+			  }
+			  if(!data){
+				  alert("some error has occured");
+			  }
+	           
 	   });
 		
 	}

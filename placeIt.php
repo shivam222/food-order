@@ -30,7 +30,10 @@ $database=mysql_select_db($db_name,$connection);
 		$query="INSERT INTO orderz (email,mobile,tot_cost,address,orders) VALUES ('$email',$mob,'$total','$area','$str')";
 		$run1=mysql_query($query);
 		if ( $run1 == false ){
-           echo "error";
+           echo false;
+}
+else{
+	echo true;
 }
 
 ?>
