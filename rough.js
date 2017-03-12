@@ -323,7 +323,8 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http){
 				namearr:$localStorage.names,
 				pricearr:$localStorage.prices,
 				stockarr:$localStorage.stock,
-				area2:$cookies.get('add')
+				area2:$cookies.get('add'),
+				thalis:$localStorage.qty
 				}),
     headers: {
         'Content-Type': "application/x-www-form-urlencoded; "    //charset=utf-8

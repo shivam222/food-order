@@ -15,13 +15,22 @@ $database=mysql_select_db($db_name,$connection);
 		$stock=$_POST['stockarr'];
 	    $price=$_POST['pricearr'];
 		$area=$_POST['area2'];
+		$thalis=$_POST['thalis'];
 		$orderr=array();
 		$str='';
+		if($thalis>0){
+			$str='thali'.'-'.$thalis;
+		}
 		for($i=0;$i<count($name);$i++){
 			  //$current=strval($stock[$i]);
 			   $orderr[$i]= $name[$i].'-'.$stock[$i];
 			   $str=$str." ".$orderr[$i];
 /* $orderr[$i]= '$name[$i]'."-".'$stock[$i]'; */
 		}
-		echo $str;
+		$query="INSERT INTO orderz (email,mobile,tot_cost,address,orders) VALUES ('$email',$mob,'$total','$area','$str')";
+		$run1=mysql_query($query);
+		if ( $run1 == false ){
+           echo "error";
+}
+
 ?>
