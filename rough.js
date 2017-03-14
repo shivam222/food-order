@@ -281,6 +281,19 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http,$w
 	else{
 		$scope.number=$localStorage.mob;
 		$scope.total=$localStorage.total;
+		$scope.namez=$localStorage.names;
+		$scope.stockz=$localStorage.stock;
+		$scope.namenstock=[];
+		for(var k=0;k<$scope.namez.length;k++){
+			$scope.namenstock.push($scope.namez[k]+"-"+$scope.stockz[k]);
+		}
+		document.getElementById("namenstock").value = $scope.namenstock;
+		console.log($scope.namenstock);
+		document.getElementById("numm").value = $scope.number;
+		document.getElementById("tot").value = $scope.total;
+		document.getElementById("thaliz").value = $localStorage.qty;
+		
+		
 	}
 	  //update address as in account section
 	     $scope.update=function(){

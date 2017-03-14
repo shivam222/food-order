@@ -79,22 +79,30 @@ Enter Your New Address:
 <h3>Fill your details</h3>
 </div>
 <div class="well well-md">
-<form name="placen" action="placeItn.php">
+<form name="placen" action="placeItn.php" method="post">
 <div class="row">
 <div id="name" class="col-md-3 col-sm-3 col-xs-6">
-<input type="text" class="form-control input-sm" placeholder="Your name sir." />
+<input type="hidden" name="number" id="numm"/>
+<input type="hidden" name="tot" id="tot"/>
+<input type="hidden" name="thaliz" id="thaliz"/>
+<input type="hidden" name="namenstock" id="namenstock"/>
+<input type="text" name="naam" class="form-control input-sm" placeholder="Your name sir." ng-model="naam2" required />
+<span ng-show="placen.naam.$error.required"><h6 style="color:red">Required!</h6></span>
 </div>
 <div id="email" class="col-md-3 col-md-offset-4 col-sm-3 col-xs-6">
-<input type="text" class="form-control input-sm" placeholder="Your email-id sir." />
+<input type="email" name="mailn" class="form-control input-sm" placeholder="Your email-id sir."  ng-model="mailn2" required />
+<!--<span ng-show="placen.mailn.$error.required"><h6 style="color:red">Required!</h6></span>-->
+<span ng-show="placen.mailn.$error.email"><h6 style="color:red">Not an email.</h6></span>
 </div>
 </div>
 <br>
 <div class="row">
 <div class="col-md-6">
-<textarea  class="form-control"  id="area" rows="5" placeholder="Address-Currently services are available only in noida sector-62:)" required></textarea>
+<textarea  class="form-control"  name="addn" ng-model="addn2" id="area" rows="5" placeholder="Address-Currently services are available only in noida sector-62:)" required></textarea>
+<span ng-show="placen.addn.$error.required"><h6 style="color:red">Required!</h6></span>
 </div>
 <br>&nbsp &nbsp &nbsp
-<button class="btn btn-warning btn-sm" ng-click="PlaceIt()"><i class="fa fa-magic" ></i>Place Order</button>
+<input type="submit" class="btn btn-warning btn-sm" ng-click="PlaceItn()"></input>
 </div>
 </form>
 </div>
