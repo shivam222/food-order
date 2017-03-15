@@ -18,24 +18,14 @@ $database=mysql_select_db($db_name,$connection);
 		if($thali>0){
 			$order=$order.',thali-'.$thali;
 		}
-		echo $order;
-		//000echo $thali;
-		/*if($thalis>0){
-			$str='thali'.'-'.$thalis;
-		}
-		for($i=0;$i<count($name);$i++){
-			  //$current=strval($stock[$i]);
-			   $orderr[$i]= $name[$i].'-'.$stock[$i];
-			   $str=$str." ".$orderr[$i];
-/* $orderr[$i]= '$name[$i]'."-".'$stock[$i]'; */
-		//}2
-		/*$query="INSERT INTO orderz (email,mobile,tot_cost,address,orders) VALUES ('$email',$mob,'$total','$area','$str')";
+		
+		$query="INSERT INTO orderzn (email,mobile,tot_cost,address,orders,name) VALUES ('$email',$number,'$total','$address','$order','$name')";
 		$run1=mysql_query($query);
 		if ( $run1 == false ){
-           echo false;
+           echo "An error was occured in placing your order please try again.";
 }
 else{
-	echo true;
-}*/
+	echo "Your order was successfully placed";
+}
 
 ?>
