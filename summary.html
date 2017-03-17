@@ -28,12 +28,12 @@ summary
  </table>
 
  <div class="well well-sm slot">
- <h4 class="text-center">Choose your time slot</h4>
+ <h4 class="text-center">Choose your time slot</h4>(only dinner)
  <div class="radio">
-  <label><input type="radio" name="optradio" ng-model="optradio" ng-value="1">9:00 pm-9:30 pm</label>
+  <label><input type="radio" name="optradio" ng-model="optradio" ng-value="1" ng-disabled="one">9:00 pm-9:30 pm</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="optradio" ng-model="optradio" ng-value="2">9:30 pm-10:00 pm</label>
+  <label><input type="radio" name="optradio" ng-model="optradio" ng-value="2" ng-disabled="two">9:30 pm-10:00 pm</label>
 </div>
  </div>
  <div class="checkOut" ng-hide="final1" ><b>Total:</b>{{total}}

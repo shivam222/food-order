@@ -229,7 +229,17 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 	$localStorage.prices=[];
 	$scope.prices=$localStorage.prices;
 	$scope.totalPriceI=0;
+	var d = new Date();
+	//disable the slots acc.
 	
+	if((d.getHours()==20 && d.getMinutes>=31)|| (d.getHours()>=21 && d.getHours()<0 ) ){
+		$scope.one=true;
+		}
+	if((d.getHours()==21) || (d.getHours()>=22 && d.getHours()<0 )){
+		$scope.two=true;
+	}
+   
+	//disable the path to last page
 	$scope.isDisable=function(){
 		if((''+$scope.mobii).length==10 && ($scope.optradio==1||$scope.optradio==2)){
 			$localStorage.mob=$scope.mobii;
@@ -246,7 +256,7 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 	$scope.thalip=$localStorage.cost*$localStorage.qty;
 	var len=$localStorage.special.length;
 	for(var l=0;l<len;l++){
-		if($localStorage.special[l]>0){
+		if($localStorage.special[l]>0){   //making of array for names,price,qty.
 			$localStorage.names.push($localStorage.menu[l]);
 			$scope.names=$localStorage.names;
 			$localStorage.stock.push($localStorage.special[l]);
