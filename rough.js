@@ -231,8 +231,9 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 	$scope.totalPriceI=0;
 	
 	$scope.isDisable=function(){
-		if((''+$scope.mobii).length==10){
+		if((''+$scope.mobii).length==10 && ($scope.optradio==1||$scope.optradio==2)){
 			$localStorage.mob=$scope.mobii;
+			$localStorage.tslot=$scope.optradio;
 			return false;
 			
 		}
@@ -292,7 +293,7 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http,$w
 		document.getElementById("numm").value = $scope.number;
 		document.getElementById("tot").value = $scope.total;
 		document.getElementById("thaliz").value = $localStorage.qty;
-		
+		document.getElementById("slot").value = $localStorage.tslot;
 		
 	}
 	  //update address as in account section
@@ -342,7 +343,8 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http,$w
 				pricearr:$localStorage.prices,
 				stockarr:$localStorage.stock,
 				area2:$cookies.get('add'),
-				thalis:$localStorage.qty
+				thalis:$localStorage.qty,
+				tslot:$localStorage.tslot
 				}),
     headers: {
         'Content-Type': "application/x-www-form-urlencoded; "    //charset=utf-8

@@ -16,6 +16,8 @@ $database=mysql_select_db($db_name,$connection);
 	    $price=$_POST['pricearr'];
 		$area=$_POST['area2'];
 		$thalis=$_POST['thalis'];
+		$slot=$_POST['tslot'];
+		$time=date("Y-m-d H:i:s");
 		$orderr=array();
 		$str='';
 		if($thalis>0){
@@ -27,7 +29,7 @@ $database=mysql_select_db($db_name,$connection);
 			   $str=$str." ".$orderr[$i];
 /* $orderr[$i]= '$name[$i]'."-".'$stock[$i]'; */
 		}
-		$query="INSERT INTO orderz (email,mobile,tot_cost,address,orders) VALUES ('$email',$mob,'$total','$area','$str')";
+		$query="INSERT INTO orderz (email,mobile,tot_cost,address,orders,slot,orderTime) VALUES ('$email',$mob,'$total','$area','$str','$slot','$time')";
 		$run1=mysql_query($query);
 		if ( $run1 == false ){
            echo false;
