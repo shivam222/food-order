@@ -74,6 +74,7 @@ $run=mysql_query($query);
 		}
 }
 else{
+	echo '<h2>Admin Panel</h2>'.'<br>';
 	echo '<form action="admin.php" method="post">';
 	echo 'Username:'.'<input type="text" name="name" />'.'<br>';
 	echo 'Password:'.'<input type="password" name="password"/>'.'<br>';

@@ -26,7 +26,8 @@ You can even order food without signing in.</h3>
 <tr>
 <td>{{em}}</td>
 <td>{{ad}}</td>
-<td><button class="btn btn-success" data-toggle="modal" data-target="#mod" >Edit</button></td>
+<td><button class="btn btn-success" data-toggle="modal" data-target="#mod" >change address</button></td>
+<td><button class="btn btn-success" data-toggle="modal" data-target="#mod2" >change password</button></td>
 </tr>
 </tbody>
 </table>
@@ -43,6 +44,26 @@ Enter Your New Address:
 		<span ng-show="myForm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
 		</div>
        <button ng-click="update()" class="btn btn-default btn-sm btn-primary pull-right">Change</button><br><br>
+
+</div>
+<div class="modal-footer">
+<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<!--modal2-->
+<div class="modal" id="mod2">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+Change Password:
+</div>
+<div class="modal-body">
+      <input type="password" class="form-control" placeholder="Your old password" ng-model="opass"/><br>
+	  <input type="password" class="form-control" placeholder="Your new password" ng-model="npass"/><br>
+	  <input type="password" class="form-control" placeholder="confirm new password" ng-model="n2pass"/>
+       <button ng-click="update2()" class="btn btn-default btn-sm btn-primary pull-right">Change</button><br><br>
 
 </div>
 <div class="modal-footer">

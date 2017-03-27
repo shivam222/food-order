@@ -146,6 +146,41 @@ app.controller('account',function($scope,$cookies,$http){
 			 
 			 
 		 }	
+		 
+		      $scope.update2=function(){
+				  
+				  if($scope.npass!=$scope.n2pass){
+					  alert("Your new password was different in confirming field...try again!" );
+				  }
+			 else{
+			     $http({
+    method: 'post',
+    url: 'changepass.php',
+	data : $.param({
+                emaill:$cookies.get('remail'),
+				npass:$scope.npass,
+				opass:$scope.opass
+				
+            }),
+    headers: {
+        'Content-Type': "application/x-www-form-urlencoded; "    //charset=utf-8
+              }
+                                    
+	 })
+	.success(function(data) {	
+	
+	         if(data==true){
+				alert("your password is updated...logout then login with new password now")
+                   
+			 }
+			 else{
+				 alert("Something was wrong ....password not changed..try again");
+			 }
+	   });
+			 
+			 
+			  } 
+		 }
 		
 		
 });
