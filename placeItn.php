@@ -14,12 +14,13 @@ $database=mysql_select_db($db_name,$connection);
 		$name=$_POST['naam'];
 		$email=$_POST['mailn'];
 		$address=$_POST['addn'];
-	    $thali=$_POST['thaliz'];
+	   // $thali=$_POST['thaliz'];
 		$slot=$_POST['slot'];
+		date_default_timezone_set("Asia/Kolkata");
 		$time=date("Y-m-d H:i:s");
-		if($thali>0){
-			$order=$order.',thali-'.$thali;
-		}
+		//if($thali>0){
+			//$order=$order.',thali-'.$thali;
+		//}
 		
 		$query="INSERT INTO orderzn (email,mobile,tot_cost,address,orders,name,slot,orderTime) VALUES ('$email',$number,'$total','$address','$order','$name','$slot','$time')";
 		$run1=mysql_query($query);

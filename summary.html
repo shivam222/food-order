@@ -12,17 +12,14 @@ summary
  <table class="table tabl">
       <tr>
       <th>Item</th>
-	  <td>Thali</td>
 	  <td ng-repeat="name in names">{{name}}</td>
       </tr>
       <tr>
        <th>Qty.</th>
-       <td>{{thaliq}}</td>
 	   <td ng-repeat="quant in stock track by $index">{{quant}}</td>
       </tr>
       <tr>
        <th>Price</th>
-       <td>{{thalip}}</td>
 	   <td ng-repeat="price in prices">{{price}}</td>
       </tr>
  </table>

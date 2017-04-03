@@ -15,14 +15,15 @@ $database=mysql_select_db($db_name,$connection);
 		$stock=$_POST['stockarr'];
 	    $price=$_POST['pricearr'];
 		$area=$_POST['area2'];
-		$thalis=$_POST['thalis'];
+		//$thalis=$_POST['thalis'];
 		$slot=$_POST['tslot'];
+		date_default_timezone_set("Asia/Kolkata");
 		$time=date("Y-m-d H:i:s");
 		$orderr=array();
 		$str='';
-		if($thalis>0){
-			$str='thali'.'-'.$thalis;
-		}
+		//if($thalis>0){
+			//$str='thali'.'-'.$thalis;
+		//}
 		for($i=0;$i<count($name);$i++){
 			  //$current=strval($stock[$i]);
 			   $orderr[$i]= $name[$i].'-'.$stock[$i];

@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>
+Order:)
+</title>
+</head>
+<body ng-controller="order2">
+<br><br><br><br><br>
+<div class="checkOut">
+<i class="fa fa-arrow-circle-right"></i>
+<!--<button class="btn btn-default btn-sm" ng-click="summary()">-->
+<a href="#summary">
+<i class="fa fa-child"></i>
+Checkout
+</a>
+<!--</button>-->
+<i class="fa fa-arrow-circle-right"></i>
+</div>
+<br><br>
+<div class="row">
+<div class="col-md-12 col-md-offset-0">
+<div class="well well-sm pinkD">
+<div class="pink">
+<h4>Windsor(w)</h4>
+</div>
+<div class="your row">
+<div class="col-md-2 col-sm-2 col-xs-2">
+<h6 class="thaliI">Items</h6>
+<div ng-repeat="item in menuw">
+<span class="thaliI">{{item}}</span>
+</div>
+</div>
+<div class="col-md-2 col-sm-2 col-xs-2">
+<h6 class="thaliI">Price</h6>
+<div ng-repeat="price in menuPricew">
+<span class="thaliI">{{price}}</span>
+</div>
+</div>
+<div class="col-md-2 col-sm-2 col-xs-4">
+<h6 class="thaliI">Quantity</h6>
+<div ng-repeat="esp in special track by $index">
+<span class="thaliI">
+<button type="button" class="btn btn-default btn-xs" ng-click="degrade($index)" >
+   <i class="fa fa-minus"></i>
+</button>
+{{esp}}
+<button type="button" class="btn btn-default btn-xs" ng-click="upgrade($index)" >
+  <i class="fa fa-plus"></i>
+</button>
+
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br><br><!-- 12 22  -->
+<div class="row">
+<div class="col-md-12 col-md-offset-0">
+<div class="well well-sm pinkD">
+<div class="pink">
+<h4>12 22 (12)</h4>
+</div>
+<div class="your row">
+<div class="col-md-2 col-sm-2 col-xs-2">
+<h6 class="thaliI">Items</h6>
+<div ng-repeat="item2 in menu12">
+<span class="thaliI">{{item2}}</span>
+</div>
+</div>
+<div class="col-md-2 col-sm-2 col-xs-2">
+<h6 class="thaliI">Price</h6>
+<div ng-repeat="price2 in menuPrice12">
+<span class="thaliI">{{price2}}</span>
+</div>
+</div>
+<div class="col-md-2 col-sm-2 col-xs-4">
+<h6 class="thaliI">Quantity</h6>
+<div ng-repeat="esp2 in special12 track by $index">
+<span class="thaliI">
+<button type="button" class="btn btn-default btn-xs" ng-click="degrade2($index)" >
+   <i class="fa fa-minus"></i>
+</button>
+{{esp2}}
+<button type="button" class="btn btn-default btn-xs" ng-click="upgrade2($index)" >
+  <i class="fa fa-plus"></i>
+</button>
+
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
