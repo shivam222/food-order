@@ -1,14 +1,6 @@
 <?php
 
-$servername = "localhost:3307";
-$username = "root";
-$password = "";
-$db_name="users";
-$connection=mysql_connect($servername,$username,$password);
-
-$database=mysql_select_db($db_name,$connection);
-	
-	//$_POST = json_decode(file_get_contents('php://input'), true);
+include ('connect.php');	//$_POST = json_decode(file_get_contents('php://input'), true);
 	    $name=$_POST['forgotField'];
 	    
 		

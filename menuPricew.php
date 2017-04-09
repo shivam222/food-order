@@ -1,13 +1,5 @@
 <?php
-$servername = "localhost:3307";
-$username = "root";
-$password = "";
-$db_name="users";
-$connection=mysql_connect($servername,$username,$password);
-
-$database=mysql_select_db($db_name,$connection);
-	
-	
+include ('connect.php');
 	    
 		$query1="SELECT * FROM windsor";
 		$run1=mysql_query($query1);
