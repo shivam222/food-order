@@ -256,12 +256,13 @@ $scope.upgrade=function(now){
 }*/
 
 app.controller('order2',function($scope,$http,$rootScope,$localStorage){
+	
 	//windsor
 		 $http({
   method: 'GET',           
   url: 'menuw.php'
 }).success(function(response) {
-  
+  console.log(response);
    $localStorage.menuw=response;
    $scope.menuw=$localStorage.menuw;
 });
@@ -278,15 +279,31 @@ $http({
    }
    $localStorage.special=quantityw;
    $scope.special=$localStorage.special;
+   $scope.first=[];
+ for(var v=0;v<$localStorage.menuw.length;v++){
+	//console.log($localStorage.special[0]);
+	 $scope.first[v]={steyn:$localStorage.menuw[v],woakes:$localStorage.menuPricew[v],lee:$localStorage.special[v]};
+   }
 });
+
+//tring
+
+  
+
+//steyn:$scope.menuw[v],woakes:$scope.menuPricew[v],lee:$scope.special[v]
+//console.log($localStorage.special[0]);
+
+//
 $scope.degrade=function(now){
-	if($localStorage.special[now]>0)
+	if($localStorage.special[now]>0){
 	   $localStorage.special[now]--;
        $scope.special[now]= $localStorage.special[now];
+	   $scope.first[now].lee--;}  
 }
 $scope.upgrade=function(now){
         $localStorage.special[now]++;	
 		$scope.special[now]= $localStorage.special[now];
+		$scope.first[now].lee++;
 }
 //12 22
 		 $http({
@@ -309,15 +326,23 @@ $http({
    }
    $localStorage.special12=quantity12;
    $scope.special12=$localStorage.special12;
+    $scope.second=[];
+ for(var v=0;v<$localStorage.menu12.length;v++){
+	//console.log($localStorage.special[0]);
+	 $scope.second[v]={steyn:$localStorage.menu12[v],woakes:$localStorage.menuPrice12[v],lee:$localStorage.special12[v]};
+   }
 });
 $scope.degrade2=function(now){
-	if($localStorage.special12[now]>0)
+	if($localStorage.special12[now]>0){
 	   $localStorage.special12[now]--;
-       $scope.special12[now]= $localStorage.special12[now];
+	$scope.special12[now]= $localStorage.special12[now];
+	$scope.second[now].lee--;
+	}
 }
 $scope.upgrade2=function(now){
         $localStorage.special12[now]++;	
 		$scope.special12[now]= $localStorage.special12[now];
+		$scope.second[now].lee++;
 }
 });
 
