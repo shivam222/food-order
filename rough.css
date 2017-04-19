@@ -164,6 +164,9 @@
 
 .checkOut{
 	background-color:white;
+	width:100%;
+    position:fixed;
+	 z-index:99;
 }
 .checkOut a{
   margin-left:60%;
