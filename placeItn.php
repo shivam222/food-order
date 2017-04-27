@@ -7,6 +7,12 @@ include ('connect.php');
 		$name=$_POST['naam'];
 		$email=$_POST['mailn'];
 		$address=$_POST['addn'];
+		$sector=$_POST['sector'];
+		if($sector=="Sector"){
+			echo "select your sector";
+		}
+		else{
+		$address="Noida".",".$sector.",".$address;
 	   // $thali=$_POST['thaliz'];
 		$slot=$_POST['slot'];
 		date_default_timezone_set("Asia/Kolkata");
@@ -25,5 +31,5 @@ else{
 	echo "<script type='text/javascript'>alert('Sir,your order was successfully placed...just wait for the delicious food to arrive');</script>";
 	header( "refresh:1;url=rough.html#/order" );
 }
-
+		}
 ?>
