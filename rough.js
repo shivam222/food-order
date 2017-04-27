@@ -120,6 +120,25 @@ app.controller('love',function($scope,$http,$rootScope,$cookies){
 });
 
 app.controller('account',function($scope,$cookies,$http){
+	//address
+	
+	
+	//address
+	
+	$scope.sector="Sector";
+	//document.getElementById("sector").value = $scope.sector;
+	$scope.sectore=function(par){
+		if(par==1){
+			$scope.sector="sec-58";
+		//	document.getElementById("sector").value = $scope.sector;
+		}
+		else if(par==2){
+			$scope.sector="sec-56";
+			//document.getElementById("sector").value = $scope.sector;
+		}
+		
+	}
+	
 	   
 	   $scope.ahead=true;
 	   if($cookies.get('remail2')=='yep'){
@@ -131,7 +150,8 @@ app.controller('account',function($scope,$cookies,$http){
 			
 		}
 	     $scope.update=function(){
-			 
+			 if($scope.sector!="Sector"){
+				 $scope.newarea="Noida,"+$scope.sector+","+$scope.newarea
 			     $http({
     method: 'post',
     url: 'changeadd.php',
@@ -158,7 +178,10 @@ app.controller('account',function($scope,$cookies,$http){
 			 }
 	   });
 			 
-			 
+			 } 
+			 else{
+				 alert("You must have some sector?");
+			 }
 			 
 		 }	
 		 

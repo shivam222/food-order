@@ -40,8 +40,33 @@ Enter Your New Address:
 </div>
 <div class="modal-body">
        <div class="form-group" ng-form name="myForm">
-       <textarea name="newAdd" class="form-control" ng-model="newarea" id="area" rows="5" placeholder="Currently services are available only in noida sector-62:)" required></textarea>
-		<span ng-show="myForm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>
+	   
+	   <div class="row">
+		<div class="col-md-2 col-sm-2 col-xs-2">
+		<div class="dropdown">
+               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Noida
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                     <li>Noida</li>
+                </ul>
+         </div>
+		</div>
+		<div class="col-md-2 col-sm-2 col-xs-2 col-xs-offset-1">
+		<div class="dropdown">
+               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{sector}}
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu sec">
+                     <li ng-click="sectore(1)">Sec-58</li>
+					 <li ng-click="sectore(2)">Sec-56</li>
+                </ul>
+         </div>
+		</div>
+		
+		</div>
+		<br>
+		<input type="text" name="newAdd" ng-model="newarea" placeholder="Your address please.." class="form-control "   required/>
+       <!--<textarea name="newAdd" class="form-control" ng-model="newarea" id="area" rows="5" placeholder="Currently services are available only in noida sector-62:)" required></textarea>
+		<span ng-show="myForm.newAdd.$error.required"><h4 style="color:white">Required!</h4></span><br>-->
 		</div>
        <button ng-click="update()" class="btn btn-default btn-sm btn-primary pull-right">Change</button><br><br>
 
