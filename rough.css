@@ -101,6 +101,9 @@
   -o-background-size: cover;
   background-size: cover;
 }
+.sec li:hover{
+	cursor:pointer;
+}
 .accountN{
 	text-align:center;
 	color:white;

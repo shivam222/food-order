@@ -19,6 +19,21 @@ app.config(function($routeProvider){
 });
 
 app.controller('love',function($scope,$http,$rootScope,$cookies){
+	//address
+	
+	$scope.sector="Sector";
+	document.getElementById("sector").value = $scope.sector;
+	$scope.sectore=function(par){
+		if(par==1){
+			$scope.sector="sec-58";
+			document.getElementById("sector").value = $scope.sector;
+		}
+		else if(par==2){
+			$scope.sector="sec-56";
+			document.getElementById("sector").value = $scope.sector;
+		}
+		
+	}
 	
 	
 	if($cookies.get('remail2')=='yep')
