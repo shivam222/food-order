@@ -151,7 +151,7 @@ app.controller('account',function($scope,$cookies,$http){
 		}
 	     $scope.update=function(){
 			 if($scope.sector!="Sector"){
-				 $scope.newarea="Noida,"+$scope.sector+","+$scope.newarea
+				 $scope.newarea="Noida,"+$scope.sector+","+$scope.newarea;
 			     $http({
     method: 'post',
     url: 'changeadd.php',
@@ -455,6 +455,24 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 });
 app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http,$window){
 	run=0;
+	
+		//address
+	
+	$scope.sector2="Sector";
+	//document.getElementById("sector").value = $scope.sector;
+	$scope.sectore2=function(par){
+		if(par==1){
+			$scope.sector2="sec-58";
+		//	document.getElementById("sector").value = $scope.sector;
+		}
+		else if(par==2){
+			$scope.sector2="sec-56";
+			//document.getElementById("sector").value = $scope.sector;
+		}
+		
+	}
+	
+	
 	$scope.sector="Sector";
 	document.getElementById("sector").value = $scope.sector;
 	$scope.sectore=function(par){
@@ -497,7 +515,8 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http,$w
 	}
 	  //update address as in account section
 	     $scope.update=function(){
-			 
+			 if($scope.sector2!="Sector"){
+				 $scope.newarea="Noida,"+$scope.sector2+","+$scope.newarea;
 			     $http({
     method: 'post',
     url: 'changeadd.php',
@@ -526,7 +545,10 @@ app.controller('last',function($scope,$rootScope,$cookies,$localStorage,$http,$w
 	   });
 			 
 			 
-			 
+			 }
+			 else{
+				 alert("select a sector");
+			 }
 		 }
 	$scope.PlaceIt=function(){
 		//registered users order code
