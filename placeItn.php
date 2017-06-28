@@ -24,7 +24,7 @@ include ('connect.php');
 		$query="INSERT INTO orderzn (email,mobile,tot_cost,address,orders,name,slot,orderTime) VALUES ('$email',$number,'$total','$address','$order','$name','$slot','$time')";
 		$run1=mysql_query($query);
 		if ( $run1 == false ){
-           echo "An error was occured in placing your order please try again bu refreshing the page.";
+           echo "An error was occured in placing your order please try again by refreshing the page.";
 }
 else{
 	//echo "Your order was successfully placed";

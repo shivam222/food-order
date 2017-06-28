@@ -1,30 +1,21 @@
 <?php
-$servername = "localhost:3307";
-$username = "root";
-$password = "";
-$db_name="users";
-$connection=mysql_connect($servername,$username,$password);
-
-$database=mysql_select_db($db_name,$connection);
-	
-	
-	    
-		$query1="SELECT * FROM items";
-		$run1=mysql_query($query1);
-	    //echo $run1[0];
-		$data=array();
-		$i=0;
+include ('connect.php');	
+$menuAll=array();
+$query1="SELECT name,price FROM windsor";
+$run1=mysql_query($query1);
+$i=0;
 		while($ansi=mysql_fetch_assoc($run1)){
-		   $data[$i]= $ansi['name'];
-	       
+		   $menuAll[$i][0]= $ansi['name'];
+	       $menuAll[$i][1]= $ansi['price'];
+		   $i++;
+		   }	
+$query2="SELECT name,price FROM barabais";
+$run2=mysql_query($query2);
+        while($ansi=mysql_fetch_assoc($run2)){
+		   $menuAll[$i][0]= $ansi['name'];
+	       $menuAll[$i][1]= $ansi['price'];
 		   $i++;
 		   }
 
-		   echo json_encode($data);
-		//header('Content-Type: application/json');
-		//if($run1)
-		//{
-	    //echo $ansi['item'];
-		//}
-		
+echo json_encode($menuAll);
 ?>

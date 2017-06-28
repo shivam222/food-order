@@ -231,107 +231,31 @@ app.controller('help',function($scope,$location,$anchorScroll){
 	}
 });
 
-/*app.controller('order',function($scope,$http,$rootScope,$localStorage){
+
+app.controller('order2',function($scope,$http,$rootScope,$localStorage){
 	
-	$localStorage.qty=0;
-	$scope.qty=$localStorage.qty;
-	$http({
-  method: 'GET',
-  url: 'thali.php'
-}).success(function(response) {
-    $scope.items=response;
-	var l=$scope.items.length;
-	$localStorage.cost=$scope.items[l-1];
-	$scope.cost=$localStorage.cost;
-	$scope.items.pop();
-	  });
-	  
-	 $scope.thaliqty=function(para){
-		 if(para=="add"){
-			 $localStorage.qty=$localStorage.qty+1;
-			 $scope.qty=$localStorage.qty;
-		 }
-		 else if(para=="sub" && $localStorage.qty>0){
-			 $localStorage.qty--;
-			 $scope.qty=$localStorage.qty;
-		 }
-	 }
-	 
+	//testing
 	 $http({
-  method: 'GET',
+  method: 'GET',           
   url: 'menu.php'
 }).success(function(response) {
+ 
+   $localStorage.menuAll=response;
   
-   $localStorage.menu=response;
-   $scope.menu=$localStorage.menu;
-});
-$http({
-  method: 'GET',
-  url: 'menuPrice.php'
-}).success(function(response2) {
-  
-   $localStorage.menuPrice=response2;
-   $scope.menuPrice=$localStorage.menuPrice;
-    var quantity=[];
-   for(var v=0;v<response2.length;v++){
+   $scope.menuAll=$localStorage.menuAll;
+   
+     var quantity=[];                          
+   for(var v=0;v<response.length;v++){
 	   quantity[v]=0;
    }
    $localStorage.special=quantity;
    $scope.special=$localStorage.special;
-});
-$scope.degrade=function(now){
-	if($localStorage.special[now]>0)
-	   $localStorage.special[now]--;
-       $scope.special[now]= $localStorage.special[now];
-}
-$scope.upgrade=function(now){
-        $localStorage.special[now]++;	
-		$scope.special[now]= $localStorage.special[now];
-}
-/*$scope.summary=function(){
-	console.log($scope.special);
-	console.log($scope.qty);
-}*/
-
-app.controller('order2',function($scope,$http,$rootScope,$localStorage){
-	
-	//windsor
-		 $http({
-  method: 'GET',           
-  url: 'menuw.php'
-}).success(function(response) {
-  console.log(response);
-   $localStorage.menuw=response;
-   $scope.menuw=$localStorage.menuw;
-});
-$http({
-  method: 'GET',
-  url: 'menuPricew.php'
-}).success(function(response2) {
-  
-   $localStorage.menuPricew=response2;
-   $scope.menuPricew=$localStorage.menuPricew;
-    var quantityw=[];                          
-   for(var v=0;v<response2.length;v++){
-	   quantityw[v]=0;
-   }
-   $localStorage.special=quantityw;
-   $scope.special=$localStorage.special;
    $scope.first=[];
- for(var v=0;v<$localStorage.menuw.length;v++){
+ for(var v=0;v<$localStorage.menuAll.length;v++){
 	//console.log($localStorage.special[0]);
-	 $scope.first[v]={steyn:$localStorage.menuw[v],woakes:$localStorage.menuPricew[v],lee:$localStorage.special[v]};
+	 $scope.first[v]={steyn:$localStorage.menuAll[v][0],woakes:$localStorage.menuAll[v][1],lee:$localStorage.special[v]};
    }
 });
-
-//tring
-
-  
-
-//steyn:$scope.menuw[v],woakes:$scope.menuPricew[v],lee:$scope.special[v]
-//console.log($localStorage.special[0]);
-
-//
 $scope.degrade=function(now){
 	if($localStorage.special[now]>0){
 	   $localStorage.special[now]--;
@@ -342,46 +266,8 @@ $scope.upgrade=function(now){
         $localStorage.special[now]++;	
 		$scope.special[now]= $localStorage.special[now];
 		$scope.first[now].lee++;
-}
-//12 22
-		 $http({
-  method: 'GET',           
-  url: 'menu12.php'
-}).success(function(response) {
-   $localStorage.menu12=response;
-   $scope.menu12=$localStorage.menu12;
-});
-$http({
-  method: 'GET',
-  url: 'menuPrice12.php'
-}).success(function(response2) {
-  
-   $localStorage.menuPrice12=response2;
-   $scope.menuPrice12=$localStorage.menuPrice12;
-    var quantity12=[];                          
-   for(var v=0;v<response2.length;v++){
-	   quantity12[v]=0;
-   }
-   $localStorage.special12=quantity12;
-   $scope.special12=$localStorage.special12;
-    $scope.second=[];
- for(var v=0;v<$localStorage.menu12.length;v++){
-	//console.log($localStorage.special[0]);
-	 $scope.second[v]={steyn:$localStorage.menu12[v],woakes:$localStorage.menuPrice12[v],lee:$localStorage.special12[v]};
-   }
-});
-$scope.degrade2=function(now){
-	if($localStorage.special12[now]>0){
-	   $localStorage.special12[now]--;
-	$scope.special12[now]= $localStorage.special12[now];
-	$scope.second[now].lee--;
-	}
-}
-$scope.upgrade2=function(now){
-        $localStorage.special12[now]++;	
-		$scope.special12[now]= $localStorage.special12[now];
-		$scope.second[now].lee++;
-}
+}	
+	
 });
 
 app.controller('summary',function($scope,$rootScope,$localStorage){
@@ -390,7 +276,7 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 	$localStorage.stock=[];
 	$scope.stock=$localStorage.stock;
 	$localStorage.prices=[];
-	$scope.prices=$localStorage.prices;
+	//$scope.prices=$localStorage.prices;
 	$scope.totalPriceI=0;
 	var d = new Date();
 	//disable the slots acc.
@@ -419,29 +305,22 @@ app.controller('summary',function($scope,$rootScope,$localStorage){
 	//$scope.thaliq=$localStorage.qty;
 	//$scope.thalip=$localStorage.cost*$localStorage.qty;
 	var len=$localStorage.special.length;
-	var len2=$localStorage.special12.length;
+	var i=0;
 	for(var l=0;l<len;l++){
-		if($localStorage.special[l]>0){   //making of array for names,price,qty.
-			$localStorage.names.push($localStorage.menuw[l]);
+		if($localStorage.special[l]>0){   //making of array for names,,qty,prices.
+			$localStorage.names.push($localStorage.menuAll[l][0]);
 			$scope.names=$localStorage.names;
 			$localStorage.stock.push($localStorage.special[l]);
 			$scope.stock=$localStorage.stock;
-			$localStorage.prices.push($localStorage.menuPricew[l]*$localStorage.special[l]);
+			var tempo=$localStorage.menuAll[l][1]*$localStorage.special[l];
+		    $localStorage.prices.push(tempo);
 			$scope.prices=$localStorage.prices;
-			$scope.totalPriceI=$scope.totalPriceI+($localStorage.menuPricew[l]*$localStorage.special[l]);
-		}
+			$scope.totalPriceI=$scope.totalPriceI+$localStorage.prices[i];
+			i++;
+			}
 	}
-	for(var l=0;l<len2;l++){
-		if($localStorage.special12[l]>0){   //making of array for names,price,qty.
-			$localStorage.names.push($localStorage.menu12[l]);
-			$scope.names=$localStorage.names;
-			$localStorage.stock.push($localStorage.special12[l]);
-			$scope.stock=$localStorage.stock;
-			$localStorage.prices.push($localStorage.menuPrice12[l]*$localStorage.special12[l]);
-			$scope.prices=$localStorage.prices;
-			$scope.totalPriceI=$scope.totalPriceI+($localStorage.menuPrice12[l]*$localStorage.special12[l]);
-		}
-	}
+
+	
 	$localStorage.total=$scope.totalPriceI;
 	$scope.total=$localStorage.total;
 	if($localStorage.total<50){

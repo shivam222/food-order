@@ -43,7 +43,7 @@ Checkout
 
 
 <div ng-repeat="union in first">
-<div class="your row">
+<div class="your row" ng-if="$index<=2">
 <div class="col-md-3 col-sm-4 col-xs-6">
 <span class="thaliI"><br>{{union.steyn}}</span>
 </div>
@@ -68,36 +68,6 @@ Checkout
 <br>
 </div>
 </div>
-<!--<div class="your row">
-<div class="col-md-3 col-sm-4 col-xs-6">
-<h6 class="thaliI">Items</h6>
-<div ng-repeat="item in menuw" >
-<span class="thaliI"><br>{{item}}</span>
-</div>
-</div>
-<div class="col-md-2 col-sm-2 col-xs-1 ">
-<h6 class="thaliI">Price</h6>
-<div ng-repeat="price in menuPricew track by $index">
-<span class="thaliI"><br>{{price}}</span>
-</div>
-</div>
-<div class="col-md-2 col-sm-2 col-xs-4">
-<h6 class="thaliI">Quantity</h6>
-<div ng-repeat="esp in special track by $index">
-<br>
-<span class="thaliI">
-<button type="button" class="btn btn-default btn-xs" ng-click="degrade($index)" >
-   <i class="fa fa-minus"></i>
-</button>
-{{esp}}
-<button type="button" class="btn btn-default btn-xs" ng-click="upgrade($index)" >
-  <i class="fa fa-plus"></i>
-</button>
-
-</span>
-</div>
-</div>
-</div>-->
 
 </div>
 </div>
@@ -121,8 +91,8 @@ Checkout
 <span class="thaliI">Quantity</span>
 </div>
 </div>
-<div ng-repeat="union2 in second">
-<div class="your row">
+<div ng-repeat="union2 in first ">
+<div class="your row" ng-if="$index>2 && $index<5">
 <div class="col-md-3 col-sm-4 col-xs-6">
 <span class="thaliI"><br>{{union2.steyn}}</span>
 </div>
@@ -132,51 +102,19 @@ Checkout
 <div class="col-md-2 col-sm-2 col-xs-4">
 <br>
 <span class="thaliI">
-<button type="button" class="btn btn-default btn-xs" ng-click="degrade2($index)" >
+<button type="button" class="btn btn-default btn-xs" ng-click="degrade($index)" >
    <i class="fa fa-minus"></i>
 </button>
 {{union2.lee}}
-<button type="button" class="btn btn-default btn-xs" ng-click="upgrade2($index)" >
+<button type="button" class="btn btn-default btn-xs" ng-click="upgrade($index)" >
   <i class="fa fa-plus"></i>
 </button>
 </span>
 </div>
-
-
-
 <br>
 </div>
 </div>
-<!--<div class="your row">
-<div class="col-md-3 col-sm-4 col-xs-6">
-<h6 class="thaliI">Items</h6>
-<div ng-repeat="item2 in menu12">
-<span class="thaliI"><br>{{item2}}</span>
-</div>
-</div>
-<div class="col-md-2 col-sm-2 col-xs-1">
-<h6 class="thaliI">Price</h6>
-<div ng-repeat="price2 in menuPrice12 track by $index">
-<span class="thaliI"><br>{{price2}}</span>
-</div>
-</div>
-<div class="col-md-2 col-sm-2 col-xs-4">
-<h6 class="thaliI">Quantity</h6>
-<div ng-repeat="esp2 in special12 track by $index">
-<span class="thaliI">
-<br>
-<button type="button" class="btn btn-default btn-xs" ng-click="degrade2($index)" >
-   <i class="fa fa-minus"></i>
-</button>
-{{esp2}}
-<button type="button" class="btn btn-default btn-xs" ng-click="upgrade2($index)" >
-  <i class="fa fa-plus"></i>
-</button>
 
-</span>
-</div>
-</div>
-</div>-->
 </div>
 </div>
 </div>

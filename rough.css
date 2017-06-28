@@ -1,23 +1,52 @@
+div{
+	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
-.navbar-nav{
-	font-size:16px;
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
-.nav{
-	float:right;
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
-#small{
-	float:right;
-	display: none;
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
-@media (max-width: 768px) {
-  nav ul     { display: none; }
-  #small { display: inline-block; }
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
-#small{
-	margin-top:-40px;
+
+.menu3{
+	text-align: center;
+     font-size: 120%;
 }
+
+.menu3 .menu4  li{
+	display: inline;
+        margin-right: 2vw;
+	
+}
+
 .mainBody{ 
-  background: url(images/french.jpg) no-repeat center center fixed; 
+  background: url(images/french.gif) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -34,6 +63,7 @@
 .tag  img {
 	height:110px;
 	width:230px;
+	transition: all linear 0.2s;
 }
 .tag img:hover{
 	height:113px;
@@ -43,12 +73,11 @@
 	color:white;
 	text-align: center;
 }
-/*.panel-heading {
-	color: #00415d;
-	background-color: #fff;
-	border-color: #fff;
-	text-align:center;
-}*/
+
+.opaque a:hover{
+	opacity:.2;
+}
+
 .panel-heading a.ini{
 	color:green;
 }
@@ -160,9 +189,9 @@
 	
 }
 .thaliI{
-	background-color:#808080;
-	color:white;
-	
+	/*background-color:#808080;*/
+	color:black;
+	background-color:#FFCC99;
 }
 
 .checkOut{
@@ -175,6 +204,16 @@
   margin-left:60%;
   background-color:yellow;
 }
+.checkOut2{
+	background-color:white;
+	width:100%;
+
+}
+.checkOut2 a{
+  margin-left:60%;
+  background-color:yellow;
+}
+
 .tabl th{
 	color:red;
 }

@@ -9,21 +9,34 @@ summary
 <!--<h3>{{msg}}</h3>-->
 <div ng-hide="summor">
 <h3 class="text-center">Your order summary</h3>
- <table class="table tabl">
-      <tr>
-      <th>Item</th>
-	  <td ng-repeat="name in names">{{name}}</td>
-      </tr>
-      <tr>
-       <th>Qty.</th>
-	   <td ng-repeat="quant in stock track by $index">{{quant}}</td>
-      </tr>
-      <tr>
-       <th>Price</th>
-	   <td ng-repeat="price in prices">{{price}}</td>
-      </tr>
- </table>
 
+<div class="row sumtab">
+<div class="col-md-8 col-sm-6 col-xs-6 well well-sm" >
+<ul style="list-style: none;padding:1px;">
+<li class="thaliI">Items</li>
+</ul>
+<ul ng-repeat="name in names" style="list-style: none;padding:1px;">
+<li style="font-size:11.3px">{{name}}</li>
+</ul>
+</div>
+<div class="col-md-2 col-sm-3  col-xs-3 well well-sm" >
+<ul style="list-style: none;padding:0px;">
+<li class="thaliI">Quantity</li>
+</ul>
+<ul ng-repeat="quant in stock track by $index" style="list-style: none;padding:0px;">
+<li>{{quant}}</li>
+</ul>
+</div>
+<div class="col-md-2 col-sm-3  col-xs-3 well well-sm">
+<ul style="list-style: none;padding:0px;">
+<li class="thaliI">Price</li>
+</ul>
+<ul ng-repeat="price in prices track by $index" style="list-style: none;padding:0px;">
+<li>{{price}}</li>
+</ul>
+</div>
+</div>
+ <br>
  <div class="well well-sm slot">
  <h4 class="text-center">Choose your time slot</h4>(only dinner)
  <div class="radio">
@@ -33,7 +46,7 @@ summary
   <label><input type="radio" name="optradio" ng-model="optradio" ng-value="2" ng-disabled="two">9:30 pm-10:00 pm</label>
 </div>
  </div>
- <div class="checkOut" ng-hide="final1" ><b>Total:</b>{{total}}
+ <div class="checkOut2" ng-hide="final1" ><b>Total:</b>{{total}}
  &nbsp &nbsp &nbsp &nbsp &nbsp
  <input type="text" name="mobii" class="input-sm col-xs" placeholder="Enter your Mobile No." ng-model="mobii" maxlength="10"/>
  <i class="fa fa-mobile fa-lg"></i>

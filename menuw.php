@@ -10,7 +10,7 @@ $database=mysql_select_db($db_name,$connection);*/
 	
 	
 	    
-		$query1="SELECT * FROM windsor";
+		  
 		$run1=mysql_query($query1);
 	    //echo $run1[0];
 		$data=array();
