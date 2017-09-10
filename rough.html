@@ -25,17 +25,33 @@
        
 		 <script src="rough.js" ></script>
 		 
-       
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="https://bootswatch.com/simplex/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="rough.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script>
+		document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'interactive') {
+       document.getElementById('after_load').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+        // document.getElementById('interactive');
+         document.getElementById('before_load').style.visibility="hidden";
+         document.getElementById('after_load').style.visibility="visible";
+      },1000);
+  }
+}
+</script>
 	   </head>
 	   <body ng-app="apple" class="mainBody">
+	   
+	           <div id="before_load"> </div>
 	  
-			
+			  <div id="after_load">
 					
 					   <div class="menu3 navbar-brand navbar-default navbar-fixed-top" >
 					<ul class="menu4">
@@ -49,10 +65,13 @@
 
 	
 	
-	   <div ng-view> </div>
+	                <div ng-view> </div>
+	   
+	        </div>
 	   <div id="footer">
 			&copy; Untitled | Design by <a href="admin.php">shivam bansal</a>
 		</div>
+	
 	   <script src="js/jquery-1.12.4.js"></script>
         <script src="js/bootstrap.min.js"></script>
 	   </body>

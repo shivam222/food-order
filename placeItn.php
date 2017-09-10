@@ -28,6 +28,7 @@ include ('connect.php');
 }
 else{
 	//echo "Your order was successfully placed";
+	mail("shivamb61@gmail.com","your order",$order);
 	echo "<script type='text/javascript'>alert('Sir,your order was successfully placed...just wait for the delicious food to arrive');</script>";
 	header( "refresh:1;url=rough.html#/order" );
 }

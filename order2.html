@@ -30,41 +30,39 @@ Checkout
 
 <div class="row">
 <div class="col-md-3 col-sm-4 col-xs-6">
-<span class="thaliI">Item</span>
+<span class="thaliI"><b>Item</b></span>
 </div>
 <div class="col-md-2 col-sm-2 col-xs-1 ">
-<span class="thaliI">Price</span>
+<span class="thaliI"><b>Price</b></span>
 </div>
 <div class="col-md-2 col-sm-2 col-xs-4">
-<span class="thaliI">Quantity</span>
+<span class="thaliI righty"><b>Quantity</b></span>
 </div>
 </div>
 
 
 
 <div ng-repeat="union in first">
-<div class="your row" ng-if="$index<=2">
-<div class="col-md-3 col-sm-4 col-xs-6">
+<div class="your row" ng-if="$index<=3">
+<div class="col-md-3 col-sm-4 col-xs-6 itemn">
 <span class="thaliI"><br>{{union.steyn}}</span>
 </div>
-<div class="col-md-2 col-sm-2 col-xs-1 ">
+<div class="col-md-2 col-sm-2 col-xs-1 itemn">
 <span class="thaliI"><br>{{union.woakes}}</span>
 </div>
 <div class="col-md-2 col-sm-2 col-xs-4">
+
+<span class="thaliI righty itemn">
 <br>
-<span class="thaliI">
-<button type="button" class="btn btn-default btn-xs" ng-click="degrade($index)" >
+<button type="button" class="btn btn-default btn-xs itemn" ng-click="degrade($index)" >
    <i class="fa fa-minus"></i>
 </button>
 {{union.lee}}
-<button type="button" class="btn btn-default btn-xs" ng-click="upgrade($index)" >
+<button type="button" class="btn btn-default btn-xs itemn" ng-click="upgrade($index)" >
   <i class="fa fa-plus"></i>
 </button>
 </span>
 </div>
-
-
-
 <br>
 </div>
 </div>
@@ -82,31 +80,30 @@ Checkout
 
 <div class="row">
 <div class="col-md-3 col-sm-4 col-xs-6">
-<span class="thaliI">Item</span>
+<span class="thaliI"><b>Item</b></span>
 </div>
 <div class="col-md-2 col-sm-2 col-xs-1 ">
-<span class="thaliI">Price</span>
+<span class="thaliI"><b>Price</b></span>
 </div>
 <div class="col-md-2 col-sm-2 col-xs-4">
-<span class="thaliI">Quantity</span>
+<span class="thaliI righty"><b>Quantity</b></span>
 </div>
 </div>
 <div ng-repeat="union2 in first ">
-<div class="your row" ng-if="$index>2 && $index<5">
-<div class="col-md-3 col-sm-4 col-xs-6">
+<div class="your row" ng-if="$index>3 && $index<6">
+<div class="col-md-3 col-sm-4 col-xs-6 itemn">
 <span class="thaliI"><br>{{union2.steyn}}</span>
 </div>
-<div class="col-md-2 col-sm-2 col-xs-1 ">
+<div class="col-md-2 col-sm-2 col-xs-1 itemn">
 <span class="thaliI"><br>{{union2.woakes}}</span>
 </div>
-<div class="col-md-2 col-sm-2 col-xs-4">
-<br>
-<span class="thaliI">
-<button type="button" class="btn btn-default btn-xs" ng-click="degrade($index)" >
+<div class="col-md-2 col-sm-2 col-xs-4 itemn">
+<span class="thaliI righty"><br>
+<button type="button" class="btn btn-default btn-xs itemn" ng-click="degrade($index)" >
    <i class="fa fa-minus"></i>
 </button>
 {{union2.lee}}
-<button type="button" class="btn btn-default btn-xs" ng-click="upgrade($index)" >
+<button type="button" class="btn btn-default btn-xs itemn" ng-click="upgrade($index)" >
   <i class="fa fa-plus"></i>
 </button>
 </span>
